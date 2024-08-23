@@ -38,3 +38,7 @@ Thumbs.db
 
 .nx/cache
 .nx/workspace-data
+
+.devcontainer
+.github
+.npm
