@@ -1,15 +1,6 @@
-import NxWelcome from './nx-welcome';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routing';
 
-export function App() {
-  return (
-    <div>
-      <style jsx>{`
-        /** your style here **/
-      `}</style>
-
-      <NxWelcome title="react-monorepo-template" />
-    </div>
-  );
-}
-
-export default App;
+export const App = () => {
+  return <RouterProvider router={router} />;
+};
