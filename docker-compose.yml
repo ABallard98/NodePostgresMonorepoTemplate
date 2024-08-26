@@ -24,5 +24,3 @@ services:
       - /var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: mysecretpassword
-volumes:
-  pgvector-data:
