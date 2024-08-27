@@ -4,7 +4,7 @@ const { join } = require('path');
 
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/apps/react-monorepo-template'),
+    path: join(__dirname, '../../dist/template-project/frontend'),
   },
   devServer: {
     port: 4200,
