@@ -4,7 +4,7 @@ const { join } = require('path');
 
 module.exports = {
   output: {
-    path: join(__dirname, '../../dist/template-project/frontend'),
+    path: join(__dirname, '../../dist/template-project/app'),
   },
   devServer: {
     port: 4200,
