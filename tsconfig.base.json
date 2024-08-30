@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@lib/api-helpers": ["libs/api-helpers/src/index.ts"],
+      "@lib/be-api-helpers": ["libs/be-api-helpers/src/index.ts"],
+      "@template-project-app": ["template-project/app/src/main.tsx"],
+      "@template-project-server": ["template-project/server/src/main.tsx"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

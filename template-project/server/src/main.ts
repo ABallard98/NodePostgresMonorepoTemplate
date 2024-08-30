@@ -1,14 +1,12 @@
-import express from 'express';
+import { createConfig, createServer } from 'express-zod-api';
+import { routing } from './routes';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
+const config = createConfig({
+  server: {
+    listen: process.env.PORT ? Number(process.env.PORT) : 3000,
+  },
+  cors: true,
+  logger: { level: 'debug', color: true },
 });
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+createServer(config, routing);
