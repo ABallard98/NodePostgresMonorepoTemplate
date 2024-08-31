@@ -1,0 +1,63 @@
+{
+  "name": "database",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "database/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/database",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "database/src/main.ts",
+        "tsConfig": "database/tsconfig.app.json",
+        "assets": ["database/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "database:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "database:build:development"
+        },
+        "production": {
+          "buildTarget": "database:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "database/jest.config.ts"
+      }
+    }
+  }
+}

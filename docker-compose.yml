@@ -15,7 +15,7 @@ services:
       - ~/.ssh:/root/.ssh
     tty: true
     environment:
-      SAMPLE_DATABASE_URL: postgresql://postgres:mysecretpassword@pgvector_db:5432/sampleDb?schema=public
+      DATABASE_URL: postgresql://postgres:mysecretpassword@postgres_db:5432/sampleDb?schema=public
   postgres_db:
     image: postgres:13.6-alpine
     expose:

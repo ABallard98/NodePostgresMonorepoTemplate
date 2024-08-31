@@ -1,0 +1,17 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../generated"
+  binaryTargets   = ["native", "debian-openssl-1.1.x", "linux-arm64-openssl-1.1.x"]
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id       String @id @default(uuid())
+  email    String
+  password String
+}
